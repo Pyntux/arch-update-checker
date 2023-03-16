@@ -1,0 +1,43 @@
+#!/bin/env python3
+
+import sys
+import time
+import subprocess
+from PyQt5.QtCore import QTimer
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QAction
+
+class UpdateChecker:
+    def __init__(self):
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.check_updates)
+        self.timer.start(3600000) # Check for updates every hour
+        self.tray_icon = QSystemTrayIcon()
+        self.tray_icon.setIcon(QIcon('icon.png'))
+        self.tray_icon.show()
+        self.menu = QMenu()
+        self.action_check_updates = QAction('Check for updates')
+        self.action_check_updates.triggered.connect(self.check_updates)
+        self.action_quit = QAction('Quit')
+        self.action_quit.triggered.connect(QApplication.quit)
+        self.menu.addAction(self.action_check_updates)
+        self.menu.addAction(self.action_quit)
+        self.tray_icon.setContextMenu(self.menu)
+
+    def check_updates(self):
+        process = subprocess.run(['checkupdates'], capture_output=True, text=True)
+        updates = process.stdout.strip().split('\n')
+        print(f"Detected {len(updates)} available updates: {updates}")
+        if updates and updates[0].strip() != '':
+            message = f'There are {len(updates)} updates available!'
+            self.tray_icon.setIcon(QIcon('update.png'))
+        else:
+            message = 'Your system is up to date.'
+            self.tray_icon.setIcon(QIcon('icon.png'))
+        self.tray_icon.showMessage('Arch Update Checker', message)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    update_checker = UpdateChecker()
+    sys.exit(app.exec_())
