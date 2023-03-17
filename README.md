@@ -1,7 +1,7 @@
 # arch-update-checker
 Simple tray icon which will check for Arch Linux updates.
 
-This APP is WORK in PROGRESS!
+This APP is WORK in PROGRESS! When the app is ready, I will create an AUR package.
 
 1. For this app to work you need to have installed:
   - python
