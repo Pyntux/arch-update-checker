@@ -12,6 +12,6 @@ sha256sums=('SKIP')
 
 package() {
     #cd "${pkgname}"
-    #make install DESTDIR="$pkgdir"
-    make install
+    make install DESTDIR="$arch-update-checker"
+    #make install
 }
