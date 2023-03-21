@@ -11,7 +11,6 @@ source=("git+${url}.git")
 sha256sums=('SKIP')
 
 package() {
-    #cd "${pkgname}"
-    make install DESTDIR="$arch-update-checker"
-    #make install
+    cd "${pkgname}"
+    make install DESTDIR="$pkgdir"
 }
