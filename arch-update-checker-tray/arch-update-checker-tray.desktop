@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Arch Update Checker
-Comment=A system tray application for checking and updating Arch Linux packages
-Exec=/usr/bin/arch-update-checker/arch-update-checker
-Icon=/usr/share/arch-update-checker/icon.png
-Categories=System;Utility;
