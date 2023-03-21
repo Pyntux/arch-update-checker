@@ -11,6 +11,6 @@ source=("git+${url}.git")
 sha256sums=('SKIP')
 
 package() {
-    cd "${pkgname%-*}"
+#    cd "${pkgname%-*}"
     make install DESTDIR="$pkgdir"
 }
