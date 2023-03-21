@@ -1,6 +1,6 @@
 install:
 	install -d '$(DESTDIR)'/usr/bin/
-	install -m755 arch-update-checker.py '$(DESTDIR)'/usr/bin/arch-update-checker-tray
+	install -m755 '$(DESTDIR)'arch-update-checker.py '$(DESTDIR)'/usr/bin/arch-update-checker-tray
 	install -d '$(DESTDIR)'/usr/share/arch-update-checker-tray/
 	cp -r icon.png '$(DESTDIR)'/usr/share/arch-update-checker-tray/
 	cp -r update.png '$(DESTDIR)'/usr/share/arch-update-checker-tray/
