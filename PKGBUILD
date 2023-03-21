@@ -1,4 +1,4 @@
-pkgname=arch-update-checker
+pkgname=arch-update-checker-tray
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="A system tray application for checking and updating Arch Linux packages"
