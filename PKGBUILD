@@ -1,21 +1,24 @@
 pkgname=arch-update-checker
-pkgver=1.0.0
+pkgver=1.0
 pkgrel=1
-pkgdesc="A system tray application for checking and updating Arch Linux packages"
+pkgdesc="A system tray application for Arch Linux that checks for updates"
 arch=('any')
-url="https://github.com/Pyntux/arch-update-checker.git"
-license=('GPL3')
-depends=('python' 'python-pyqt5' 'pacman-contrib')
+url="https://github.com/Pyntux/arch-update-checker"
+license=('MIT')
+depends=('python' 'pyqt5' 'pacman-contrib')
 makedepends=('git')
-source=("git+${url}.git")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz")
 sha256sums=('SKIP')
 
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  # No build needed
+}
+
 package() {
-    cd "$srcdir"
-    mkdir -p "$pkgdir/usr/bin"
-    cp -r arch-update-checker/* "$pkgdir/usr/bin/arch-update-checker"
-    chmod +x "$pkgdir/usr/bin/arch-update-checker/arch-update-checker.py"
-    install -Dm644 "$pkgdir/usr/bin/arch-update-checker/icon.png" "$pkgdir/usr/share/icons/hicolor/48x48/apps/icon.png"
-    install -Dm644 "$pkgdir/usr/bin/arch-update-checker/update.png" "$pkgdir/usr/share/icons/hicolor/48x48/apps/update.png"
-    install -Dm644 "$pkgdir/usr/bin/arch-update-checker/arch-update-checker.desktop" "$pkgdir/usr/share/applications/arch-update-checker.desktop"
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  install -Dm644 icon.png "${pkgdir}/usr/bin/arch-update-checker/icon.png"
+  install -Dm644 update.png "${pkgdir}/usr/bin/arch-update-checker/update.png"
+  install -Dm644 arch-update-checker.py "${pkgdir}/usr/bin/arch-update-checker/arch-update-checker.py"
+  install -Dm644 arch-update-checker.desktop "${pkgdir}/usr/share/applications/arch-update-checker.desktop"
 }
