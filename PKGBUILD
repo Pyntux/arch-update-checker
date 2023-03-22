@@ -12,8 +12,13 @@ md5sums=('SKIP')
 
 package() {
     cd "$srcdir/$pkgname"
-    install -Dm755 arch-update-checker.py "$pkgdir/usr/bin/arch-update-checker"
-    install -Dm644 icon.png "$pkgdir/usr/bin/arch-update-checker/icon.png"
-    install -Dm644 update.png "$pkgdir/usr/bin/arch-update-checker/update.png"
-    install -Dm644 arch-update-checker.desktop "$pkgdir/usr/share/applications/arch-update-checker.desktop"
+
+    install -Dm755 arch-update-checker.py \
+        "$pkgdir/usr/bin/arch-update-checker/arch-update-checker.py"
+    install -Dm644 icon.png \
+        "$pkgdir/usr/bin/arch-update-checker/icon.png"
+    install -Dm644 update.png \
+        "$pkgdir/usr/bin/arch-update-checker/update.png"
+    install -Dm644 arch-update-checker.desktop \
+        "$pkgdir/usr/share/applications/arch-update-checker.desktop"
 }
