@@ -2,6 +2,6 @@
 Type=Application
 Name=Arch Update Checker
 Comment=A system tray application for checking and updating Arch Linux packages
-Exec=/usr/bin/arch-update-checker/arch-update-checker
+Exec=/usr/bin/arch-update-checker/arch-update-checker.py
 Icon=/usr/share/arch-update-checker/icon.png
 Categories=System;Utility;
