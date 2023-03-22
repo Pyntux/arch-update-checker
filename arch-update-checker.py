@@ -6,8 +6,8 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QAction
 
-default_icon = '/usr/share/arch-update-checker/icon.png'
-update_icon = '/usr/share/arch-update-checker/update.png'
+default_icon = '/usr/share/icons/hicolor/48x48/apps/icon.png'
+update_icon = '/usr/share/icons/hicolor/48x48/apps/update.png'
 
 class UpdateChecker:
     def __init__(self):
