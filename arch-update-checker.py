@@ -72,8 +72,7 @@ class UpdateChecker:
             self.action_update.setVisible(False)
 
     def update_system(self):
-        # change here to use terminal of choice:
-        subprocess.Popen(['xfce4-terminal', '-e', 'sudo', 'pacman', '-Syu'])
+        subprocess.Popen(['konsole', '-e', 'sudo', 'pacman', '-Syu'])
         QTimer.singleShot(20000, self.check_updates_after_click_on_update)
 
 if __name__ == '__main__':
